@@ -15,16 +15,36 @@
 <?php
 
 include ('vendor/autoload.php');
-use GuzzleHttp\Client;
 
-$client = new Client();
-$response = $client->request('GET', 'https://g1.com.br');
+$faker = Faker\Factory::create('pt_Br');
+
+$nome = $faker->name();
+
+
+
+
+//use GuzzleHttp\Client;
+//$client = new Client();
+//$response = $client->request('GET', 'https://g1.com.br');
 
 //echo $response->getStatusCode(); // 200
 //echo $response->getHeaderLine('content-type'); // 'application/json; charset=utf8'
-echo $response->getBody();
+//echo $response->getBody();
 
 ?>
+
+<div class="card" style="width: 18rem;">
+  <img src="https://robohash.org/<?php echo $nome; ?>.png" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title"><?php echo $nome ?></h5>
+    <p class="card-text"><?php echo $faker->email(); ?></p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
+
+<!--<h1><?php echo $nome; ?></h1>
+<img class="col-lg-4" src="https://robohash.org/<?php echo $nome?>.png">-->
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
