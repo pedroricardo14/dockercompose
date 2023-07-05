@@ -23,8 +23,12 @@ $nome = $faker->name();
 
 
 
-//use GuzzleHttp\Client;
-//$client = new Client();
+use GuzzleHttp\Client;
+$client = new Client();
+$chave = '333cb84f4a1f4164b18141430230507';
+$response = $client->request('GET', 'https://api.weatherapi.com/v1/current.json?q=brasilia&key=' . $chave);
+
+echo $response->getBody();
 //$response = $client->request('GET', 'https://g1.com.br');
 
 //echo $response->getStatusCode(); // 200
