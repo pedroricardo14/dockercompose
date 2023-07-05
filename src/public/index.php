@@ -11,10 +11,18 @@
     <title>Hello, world!</title>
   </head>
   <body>
-    <h1>Hello, world!</h1>
+    <!--<h1>Hello, world!</h1>-->
 <?php
 
-echo 'OI';
+include ('vendor/autoload.php');
+use GuzzleHttp\Client;
+
+$client = new Client();
+$response = $client->request('GET', 'https://g1.com.br');
+
+//echo $response->getStatusCode(); // 200
+//echo $response->getHeaderLine('content-type'); // 'application/json; charset=utf8'
+echo $response->getBody();
 
 ?>
 
